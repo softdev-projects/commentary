@@ -14,11 +14,19 @@ def index():
 
 @app.route('/comments', methods=['GET'])
 def get_comments():
-    return None
 
+    return [{'url':"555.555.co.uk",'comment':"Fake Real Comment"}
+            ,{'url':"hello.world.com",'comment':"Fake Comment"}
+            ,{'url':"www.why.org",'comment':"Not Real Comment"}
+            ,{'url':"www.dummy.net",'comment':"Test Comment"}]
 @app.route('/comments/new', methods=['POST'])
 def store_comments():
     return None
 
 
+
+#All Boring Names that Justin gives me and no Fun Benedict Names makes Ben a dull boy
     
+if __name__ == '__main__':
+    app.debug = True
+    app.run()
