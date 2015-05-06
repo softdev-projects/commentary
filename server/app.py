@@ -12,16 +12,21 @@ def index():
 
 
 # Only responds with JSON
-@app.route('/comments.json', methods=['GET'])
+@app.route('/comments', methods=['GET'])
 def get_comments():
-    # For now, respond with an empty object
-    data = {}
-    return jsonify(**data)
+    # For now, respond with dummy data
+    data = {'url': 'http://www.google.com/',
+            'comments': [
+                {'comment': 'Fake comment'},
+                {'comment': 'Another fake comment'}
+            ]}
+    resp = jsonify(data)
+    return resp
 
 
 @app.route('/comments/new', methods=['POST'])
 def new_comment():
-    print "Received comment \"{0}\" for {1}".format(
+    print 'Received comment \"{0}\" for {1}'.format(
         request.form['comment'], request.form['url'])
     # For now, respond with nothing and 204 No Content
     return ('', 204)
