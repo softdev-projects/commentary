@@ -1,32 +1,32 @@
-from flask import Flask, render_template, redirect, session, request, escape
-
-
-#route for retrieving, storing, and home page
-
+from flask import Flask, jsonify, render_template, request
 
 app = Flask(__name__, static_folder="static")
+# TODO: pull out to config file
 app.secret_key = "hello"
 
 
+# Homepage
 @app.route('/', methods=['GET'])
 def index():
-    return None
+    return render_template('index.html')
 
-@app.route('/comments', methods=['GET'])
+
+# Only responds with JSON
+@app.route('/comments.json', methods=['GET'])
 def get_comments():
+    # For now, respond with an empty object
+    data = {}
+    return jsonify(**data)
 
-    return [{'url':"555.555.co.uk",'comment':"Fake Real Comment"}
-            ,{'url':"hello.world.com",'comment':"Fake Comment"}
-            ,{'url':"www.why.org",'comment':"Not Real Comment"}
-            ,{'url':"www.dummy.net",'comment':"Test Comment"}]
+
 @app.route('/comments/new', methods=['POST'])
-def store_comments():
-    return None
+def new_comment():
+    print "Received comment \"{0}\" for {1}".format(
+        request.form['comment'], request.form['url'])
+    # For now, respond with nothing and 204 No Content
+    return ('', 204)
 
-
-
-#All Boring Names that Justin gives me and no Fun Benedict Names makes Ben a dull boy
-    
 if __name__ == '__main__':
+    # TODO: pull out to config file
     app.debug = True
     app.run()
