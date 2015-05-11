@@ -3,9 +3,28 @@
     src: url(LockSmith_reg.otf);
 }
 
+.one-edge-shadow {
+	-webkit-box-shadow: 0 8px 6px -6px black;
+	   -moz-box-shadow: 0 8px 6px -6px black;
+	        box-shadow: 0 8px 6px -6px black;
+}
+
 #mainTitle {
     text-align:center;
     /* Temporary font, to be replaced after consulation */
     font-family: LockSmith;
     font-size: 400%
+}
+
+#topMenu {
+  background-color:#EEEEEE;
+  /*position: fixed;*/
+}
+
+
+a {
+  text-decoration: underline;
+  font-weight: bold;
+  color: green;
+  border-bottom: 2px solid #BBBBBB;
 }
