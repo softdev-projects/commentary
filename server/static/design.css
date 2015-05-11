@@ -1,0 +1,11 @@
+@font-face{
+    font-family: LockSmith;
+    src: url(LockSmith_reg.otf);
+}
+
+#mainTitle {
+    text-align:center;
+    /* Temporary font, to be replaced after consulation */
+    font-family: LockSmith;
+    font-size: 400%
+}
