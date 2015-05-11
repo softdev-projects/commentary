@@ -59,7 +59,9 @@ document.addEventListener('DOMContentLoaded', function() {
     //}, function(errorMessage) {
       //renderStatus('Cannot display image. ' + errorMessage);
     });
-  //});
+    //});
 });
-	
-   
+
+document.getElementById("send").addEventListener("click", function() {
+    window.alert("hello!");
+});
