@@ -14,10 +14,10 @@ Deadline: May 26
 
 ### Timetable and Goals
 * May 4
-  * Minimal communication between chrome extension and server
-  * Client should be able to request and receive test data from server
-  * Client logs into google account for extension
-* May 11
+  * ~~Minimal communication between chrome extension and server~~
+  * ~~Client should be able to request and receive test data from server~~
+  * ~~Client logs into google account for extension~~
+* May 11 (Extended to May 18)
   * Client can post comments to server, receive comments from server, display comments
   * Server stores comments, retrieves comments
 * May 18:
