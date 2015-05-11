@@ -62,5 +62,6 @@ document.addEventListener('DOMContentLoaded', function() {
     //});
 });
 
-document.getElementById("send").onclick = function () {
-    alert('hello!'); };
+document.getElementById("send").addEventListener("click", function() {
+    window.alert("hello!");
+});
