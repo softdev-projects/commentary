@@ -52,6 +52,15 @@ function renderStatus(statusText) {
     document.getElementById('status').textContent = statusText;
 }
 
+function sendRequest() {
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", "localhost:5000/", true);
+    xhr.onreadystatechange = function() {
+	if (xhr.readyState == 4) {
+	}
+    }
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     document.querySelector('#send_button').addEventListener('click', console.log("send stuff"));
     document.querySelector('#receive_button').addEventListener('click', console.log("receive stuff"));
