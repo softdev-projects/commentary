@@ -53,15 +53,14 @@ function renderStatus(statusText) {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-  getCurrentTabUrl(function(url) {
-    // Put the image URL in Google search.
-    renderStatus('your current url: ' + url);
-    //}, function(errorMessage) {
-      //renderStatus('Cannot display image. ' + errorMessage);
+    document.querySelector('#send_button').addEventListener('click', console.log("send stuff"));
+    document.querySelector('#receive_button').addEventListener('click', console.log("receive stuff"));
+    getCurrentTabUrl(function(url) {
+	// Put the image URL in Google search.
+	renderStatus('your current url: ' + url);
+	//}, function(errorMessage) {
+	//renderStatus('Cannot display image. ' + errorMessage);
     });
     //});
-});
-
-document.getElementById("send").addEventListener("click", function() {
-    window.alert("hello!");
+    
 });
