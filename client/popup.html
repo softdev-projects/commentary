@@ -1,26 +1,26 @@
 <!doctype html>
 <!--
- This page is shown when the extension button is clicked, because the
- "browser_action" field in manifest.json contains the "default_popup" key with
- value "popup.html".
- -->
+    This page is shown when the extension button is clicked, because the
+    "browser_action" field in manifest.json contains the "default_popup" key with
+    value "popup.html".
+  -->
 <html>
   <head>
     <title>Commentary!</title>
     <style>
       body {
-        font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
-        font-size: 100%;
+      font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
+      font-size: 100%;
       }
       #status {
-        /* avoid an excessively wide status text */
-        white-space: pre;
-        text-overflow: ellipsis;
-        overflow: hidden;
-        max-width: 400px;
+      /* avoid an excessively wide status text */
+      white-space: pre;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      max-width: 400px;
       }
     </style>
-
+    
     <!--
       - JavaScript and HTML must be in separate files: see our Content Security
       - Policy documentation[1] for details and explanation.
@@ -31,8 +31,8 @@
   </head>
   <body>
     <h5>comments go here</h5>
-    <button id="send" title="send">Send</button>
-    <button id="receive" title="receive">Receive</button>
+    <button id="send_button">Send stuff!!</button>
+    <button id="receive_button">Receive stuff!!</button>
     <div id="status">
     </div>
   </body>
