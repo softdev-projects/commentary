@@ -52,6 +52,18 @@ function renderStatus(statusText) {
     document.getElementById('status').textContent = statusText;
 }
 
+
+var xhr = new XMLHttpRequest();
+xhr.open(method, url, true);
+xhr.send("hello");
+xhr.onreadystatechange = function()
+{
+    if (xhr.readyState == 4 && xhr.status == 200) {
+	alert("will this work");
+	flag = 1;
+    }
+}
+   
 document.addEventListener('DOMContentLoaded', function() {
     document.querySelector('#send_button').addEventListener('click', console.log("send stuff"));
     document.querySelector('#receive_button').addEventListener('click', console.log("receive stuff"));
@@ -62,5 +74,6 @@ document.addEventListener('DOMContentLoaded', function() {
 	//renderStatus('Cannot display image. ' + errorMessage);
     });
     //});
-    
 });
+
+
