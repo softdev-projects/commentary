@@ -53,19 +53,30 @@ function renderStatus(statusText) {
 }
 
 
-var xhr = new XMLHttpRequest();
-xhr.open(method, url, true);
-xhr.send("hello");
-xhr.onreadystatechange = function()
-{
-    if (xhr.readyState == 4 && xhr.status == 200) {
-	alert("will this work");
-	flag = 1;
-    }
+//var xhr = new XMLHttpRequest();
+//xhr.open(method, url, true);
+//xhr.send("hello");
+//xhr.onreadystatechange = function()
+//{
+ //   if (xhr.readyState == 4 && xhr.status == 200) {
+//	alert("will this work");
+//	flag = 1;
+  //  }
+//}
+
+function log(message) {
+    var client = new XMLHttpRequest();
+    client.open("GET","http://127.0.0.1:5000/");
+    client.setRequestHeader("Content-Type","text/plain;charset=UTF=8");
+    client.send(message);
 }
+
    
 document.addEventListener('DOMContentLoaded', function() {
-    document.querySelector('#send_button').addEventListener('click', console.log("send stuff"));
+    document.querySelector('#send_button').addEventListener('click',
+							    getCurrentTabUrl(function(url) {
+								log("your current url: " + url)}));   
+    
     document.querySelector('#receive_button').addEventListener('click', console.log("receive stuff"));
     getCurrentTabUrl(function(url) {
 	// Put the image URL in Google search.
