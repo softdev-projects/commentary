@@ -66,7 +66,7 @@ function renderStatus(statusText) {
 
 function log(message) {
     var client = new XMLHttpRequest();
-    client.open("POST","http://127.0.0.1:5000/comments/new",true);
+    client.open("POST","http://127.0.0.1:5000/",true);
     client.setRequestHeader("Content-Type","text/plain;charset=UTF=8");
     client.send(message);
 }
