@@ -7,8 +7,9 @@
     
     "permissions": [
 	"activeTab",
-	"http://localhost:5000/",
-	"http://commentary.jstn.kim/"
+	//"http://localhost:5000/",
+	//"http://commentary.jstn.kim/",
+	"http://127.0.0.1:5000/"
     ],
     
     "browser_action": {
