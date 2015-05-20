@@ -97,11 +97,11 @@ function log(message) {
 
 function renderStatus(statusText) { 
     document.getElementById('status').textContent = statusText;
-    document.querySelector('#send_button').addEventListener('click',
+    document.querySelector('#send').addEventListener('click',
 							    getCurrentTabUrl(function(url) {
    								log("your current url: " + url)}));
     
-    document.querySelector('#receive_button').addEventListener('click', console.log("receive stuff"));
+    document.querySelector('#receive').addEventListener('click', console.log("receive stuff"));
 }
 
 
