@@ -49,7 +49,28 @@ function getCurrentTabUrl(callback) {
 
 function renderStatus(statusText) {
   document.getElementById('status').textContent = statusText;
+
 }
+
+//list is a JSON list : user_id, comment, date 
+// {comment} posted by {user_id} on {date} \n
+function commentify(list) { 
+    var comments = "";
+    var s;
+    for (s in list) { 
+	var user_id = s['user_id'];
+	var comment = s['comment'];
+	var date = s['date'];
+	comments = comments + comment + " posted by " + user_id + " on " + date + "\n";
+    }
+    return comments;
+}
+
+    
+function renderComments(commentText) { 
+    document.getElementById('comments').textContent = commentText;
+}
+
 
 function submitComment(commentData) {
   console.log(commentData);
@@ -74,4 +95,9 @@ document.addEventListener('DOMContentLoaded', function() {
               submitComment(data);
             });
         });
+  document.getElementById('receive_button').addEventListener('click',
+	  function() { 
+	      // list is json list given by server
+	      //renderComments(commentify(list));
+	  });
 });
