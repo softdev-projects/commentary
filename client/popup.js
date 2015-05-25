@@ -106,14 +106,11 @@ document.addEventListener('DOMContentLoaded', function() {
 //	renderStatus('your current url: ' + url);
   //  });
 
+    
     document.querySelector("#send").addEventListener("click",
-						     getCurrentTabUrl(function(url) { 
-							 log(url)}),
-						     true);
-    document.querySelector("#receive").addEventListener("click",
 							getCurrentTabUrl(function(url) { 
 							    log("receive stuff")}),
-							true);
+							false);
 
     
 });
