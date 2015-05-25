@@ -95,20 +95,27 @@ function log(message) {
     client.send(message);
 }
 
+
 function renderStatus(statusText) { 
     document.getElementById('status').textContent = statusText;
-    document.querySelector('#send').addEventListener('click',
-							    getCurrentTabUrl(function(url) {
-   								log("your current url: " + url)}));
-    
-    document.querySelector('#receive').addEventListener('click', console.log("receive stuff"));
 }
 
 
 document.addEventListener('DOMContentLoaded', function() {
-    getCurrentTabUrl(function(url) {
-	renderStatus('your current url: ' + url);
-    });
-    
+   //getCurrentTabUrl(function(url) {
+//	renderStatus('your current url: ' + url);
+  //  });
+
+    document.querySelector("#send").addEventListener("click",
+						     getCurrentTabUrl(function(url) { 
+							 log(url)}),
+						     true);
+    document.querySelector("#receive").addEventListener("click",
+							getCurrentTabUrl(function(url) { 
+							    log("receive stuff")}),
+							true);
+
     
 });
+
+
