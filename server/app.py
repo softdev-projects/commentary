@@ -59,6 +59,14 @@ def new_comment():
     # TODO: Fix me. For now, respond with nothing and 204 No Content
     return ('', 204)
 
+@app.route('/team', methods=['GET', 'POST'])
+def team():
+    return render_template("team.html")
+
+@app.route('/about', methods=['GET', 'POST'])
+def about():
+    return render_template("about.html")
+
 if __name__ == '__main__':
     # If the database is not found, create it
     if not os.path.isfile(database.DATABASE_URI):
