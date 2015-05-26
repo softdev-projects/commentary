@@ -46,12 +46,13 @@ def get_comments():
 
 @app.route('/comments/new', methods=['POST'])
 def new_comment():
+    data = request.get_json()
     print 'Received comment "{0}" for {1} from {2}'.format(
-        request.form['comment'], request.form['url'], request.form['user_id'])
+        data['comment'], data['url'], data['user_id'])
 
-    comment = Comment(request.form['user_id'],
-                      request.form['url'],
-                      request.form['comment'])
+    comment = Comment(data['user_id'],
+                      data['url'],
+                      data['comment'])
     database.insert_comment(g.db.cursor(), comment)
     g.db.commit()
 
