@@ -52,18 +52,18 @@ function renderStatus(statusText) {
 
 }
 
-//list is a JSON list : user_id, comment, date 
+//list is a JSON list : comments [ user_id, comment, date ]
 // {comment} posted by {user_id} on {date} \n
 function commentify(list) { 
-    var comments = "";
+    var text = "";
     var s;
-    for (s in list) { 
+    for (s in list["comments"]) { 
 	var user_id = s['user_id'];
 	var comment = s['comment'];
 	var date = s['date'];
-	comments = comments + comment + " posted by " + user_id + " on " + date + "\n";
+	text = text + comment + " posted by " + user_id + " on " + date + "\n";
     }
-    return comments;
+    return text;
 }
 
     
@@ -73,11 +73,12 @@ function renderComments(commentText) {
 
 
 function submitComment(commentData) {
-  console.log(commentData);
-  var xhr = new XMLHttpRequest();
-  xhr.open('POST', 'http://127.0.0.1:5000/comments/new');
-  xhr.setRequestHeader('Content-Type', 'application/json');
-  xhr.send(JSON.stringify(commentData));
+    console.log(commentData);
+    var xhr = new XMLHttpRequest();
+    var url = commentData[url];
+    xhr.open('POST', 'http://127.0.0.1:5000/comments/?url='+url);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    //xhr.send(JSON.stringify(commentData));
 }
 
 document.addEventListener('DOMContentLoaded', function() {
