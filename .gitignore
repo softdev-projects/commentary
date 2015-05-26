@@ -1,2 +1,2 @@
 *.py[cod]
-*.db
+server/commentary.db
