@@ -35,7 +35,7 @@ def get_comments():
     url = urllib.unquote_plus(request.args['url'])
 
     comments = database.get_comments_for_url(g.db.cursor(), url)
-    comments = [{'user_id': x[1], 'content': x[2]} for x in comments]
+    comments = [{'user_id': x[1], 'content': x[3]} for x in comments]
 
     data = {'url': url, 'comments': comments}
     resp = jsonify(data)
@@ -57,9 +57,11 @@ def new_comment():
     # TODO: Fix me. For now, respond with nothing and 204 No Content
     return ('', 204)
 
+
 @app.route('/team', methods=['GET', 'POST'])
 def team():
     return render_template("team.html")
+
 
 @app.route('/about', methods=['GET', 'POST'])
 def about():

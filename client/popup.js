@@ -73,12 +73,12 @@ function renderComments(commentText) {
 
 
 function submitComment(commentData) {
-    console.log(commentData);
-    var xhr = new XMLHttpRequest();
-    var url = commentData[url];
-    xhr.open('POST', 'http://127.0.0.1:5000/comments/?url='+url);
-    xhr.setRequestHeader('Content-Type', 'application/json');
-    //xhr.send(JSON.stringify(commentData));
+  console.log(commentData);
+  var xhr = new XMLHttpRequest();
+  var url = commentData[url];
+  xhr.open('POST', 'http://127.0.0.1:5000/comments/new');
+  xhr.setRequestHeader('Content-Type', 'application/json');
+  xhr.send(JSON.stringify(commentData));
 }
 
 document.addEventListener('DOMContentLoaded', function() {
