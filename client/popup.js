@@ -75,6 +75,10 @@ function renderComments(commentText) {
     document.getElementById('comments').textContent = commentText;
 }
 
+function renderCommentsURL(url) {
+    document.getElementById('commentsURL').textContent = url;
+}
+
 
 function submitComment(commentData) {
   console.log(commentData);
@@ -104,5 +108,6 @@ document.addEventListener('DOMContentLoaded', function() {
 	  function() { 
 	      // list is json list given by server
 	      //renderComments(commentify(list));
+	      //renderCommentsURL(list);
 	  });
 });
