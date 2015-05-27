@@ -59,14 +59,18 @@ function commentify(list) {
     var s;
     for (s in list["comments"]) { 
 	var user_id = s['user_id'];
-	var comment = s['comment'];
-	var date = s['date'];
-	text = text + comment + " posted by " + user_id + " on " + date + "\n";
+	var comment = s['content'];
+	//var date = s['date']
+	text = text + comment + " posted by " + user_id + "\n";
     }
     return text;
 }
 
-    
+function getURL(list) {
+    return list['url'];
+}
+
+   
 function renderComments(commentText) { 
     document.getElementById('comments').textContent = commentText;
 }
