@@ -59,26 +59,34 @@ function commentify(list) {
     var s;
     for (s in list["comments"]) { 
 	var user_id = s['user_id'];
-	var comment = s['comment'];
-	var date = s['date'];
-	text = text + comment + " posted by " + user_id + " on " + date + "\n";
+	var comment = s['content'];
+	//var date = s['date']
+	text = text + comment + " posted by " + user_id + "\n";
     }
     return text;
 }
 
-    
+function getURL(list) {
+    return list['url'];
+}
+
+   
 function renderComments(commentText) { 
     document.getElementById('comments').textContent = commentText;
 }
 
+function renderCommentsURL(url) {
+    document.getElementById('commentsURL').textContent = url;
+}
+
 
 function submitComment(commentData) {
-    console.log(commentData);
-    var xhr = new XMLHttpRequest();
-    var url = commentData[url];
-    xhr.open('POST', 'http://127.0.0.1:5000/comments/?url='+url);
-    xhr.setRequestHeader('Content-Type', 'application/json');
-    //xhr.send(JSON.stringify(commentData));
+  console.log(commentData);
+  var xhr = new XMLHttpRequest();
+  var url = commentData[url];
+  xhr.open('POST', 'http://127.0.0.1:5000/comments/new');
+  xhr.setRequestHeader('Content-Type', 'application/json');
+  xhr.send(JSON.stringify(commentData));
 }
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -100,5 +108,6 @@ document.addEventListener('DOMContentLoaded', function() {
 	  function() { 
 	      // list is json list given by server
 	      //renderComments(commentify(list));
+	      //renderCommentsURL(getURL(list));
 	  });
 });
