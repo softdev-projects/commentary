@@ -1,4 +1,5 @@
 import os
+import urllib
 
 from flask import g, Flask, jsonify, render_template, request
 
@@ -30,16 +31,13 @@ def index():
 # Only responds with JSON
 @app.route('/comments', methods=['GET'])
 def get_comments():
-    print database.get_last_comment(g.db.cursor())
+    # De-encode url
+    url = urllib.unquote_plus(request.args['url'])
 
-    # For now, respond with dummy data
-    data = {'url': 'http://www.google.com/',
-            'comments': [
-                {'user_id': '1',
-                 'comment': 'Fake comment'},
-                {'user_id': '2',
-                 'comment': 'Another fake comment'}
-            ]}
+    comments = database.get_comments_for_url(g.db.cursor(), url)
+    comments = [{'user_id': x[1], 'content': x[2]} for x in comments]
+
+    data = {'url': url, 'comments': comments}
     resp = jsonify(data)
     return resp
 
