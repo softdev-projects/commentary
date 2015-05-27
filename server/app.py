@@ -57,13 +57,11 @@ def new_comment():
     # TODO: Fix me. For now, respond with nothing and 204 No Content
     return ('', 204)
 
-
-@app.route('/team', methods=['GET', 'POST'])
+@app.route('/team', methods=['GET'])
 def team():
     return render_template("team.html")
 
-
-@app.route('/about', methods=['GET', 'POST'])
+@app.route('/about', methods=['GET'])
 def about():
     return render_template("about.html")
 
