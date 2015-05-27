@@ -108,6 +108,6 @@ document.addEventListener('DOMContentLoaded', function() {
 	  function() { 
 	      // list is json list given by server
 	      //renderComments(commentify(list));
-	      //renderCommentsURL(list);
+	      //renderCommentsURL(getURL(list));
 	  });
 });
