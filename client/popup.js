@@ -80,6 +80,15 @@ function submitComment(commentData) {
   xhr.send(JSON.stringify(commentData));
 }
 
+function retrieveComments(url) { 
+    var xhr = new XMLHttpRequest();
+    var server = 'http://127.0.0.1:5000/comments?url=' + url;
+    xhr.open('GET',server);
+    xhr.setRequestHeader('Content-Type','text/html; charset=utf-8');
+    xhr.send(url);
+
+}
+
 document.addEventListener('DOMContentLoaded', function() {
   document.getElementById('send_button').addEventListener('click',
           function() {
@@ -97,7 +106,11 @@ document.addEventListener('DOMContentLoaded', function() {
         });
   document.getElementById('receive_button').addEventListener('click',
 	  function() { 
-	      // list is json list given by server
-	      //renderComments(commentify(list));
+	      getCurrentTabUrl(function(url) { 
+		  retrieveComments(url);
+	      });
 	  });
+    // list is json list given by server
+    //renderComments(commentify(list));
+    
 });
