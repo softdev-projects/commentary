@@ -1,4 +1,5 @@
 import os
+import urllib
 
 from flask import g, Flask, jsonify, render_template, request
 
@@ -30,33 +31,39 @@ def index():
 # Only responds with JSON
 @app.route('/comments', methods=['GET'])
 def get_comments():
-    print database.get_last_comment(g.db.cursor())
+    # De-encode url
+    url = urllib.unquote_plus(request.args['url'])
 
-    # For now, respond with dummy data
-    data = {'url': 'http://www.google.com/',
-            'comments': [
-                {'user_id': '1',
-                 'comment': 'Fake comment'},
-                {'user_id': '2',
-                 'comment': 'Another fake comment'}
-            ]}
+    comments = database.get_comments_for_url(g.db.cursor(), url)
+    comments = [{'user_id': x[1], 'content': x[3]} for x in comments]
+
+    data = {'url': url, 'comments': comments}
     resp = jsonify(data)
     return resp
 
 
 @app.route('/comments/new', methods=['POST'])
 def new_comment():
+    data = request.get_json()
     print 'Received comment "{0}" for {1} from {2}'.format(
-        request.form['comment'], request.form['url'], request.form['user_id'])
+        data['comment'], data['url'], data['user_id'])
 
-    comment = Comment(request.form['user_id'],
-                      request.form['url'],
-                      request.form['comment'])
+    comment = Comment(data['user_id'],
+                      data['url'],
+                      data['comment'])
     database.insert_comment(g.db.cursor(), comment)
     g.db.commit()
 
     # TODO: Fix me. For now, respond with nothing and 204 No Content
     return ('', 204)
+
+@app.route('/team', methods=['GET'])
+def team():
+    return render_template("team.html")
+
+@app.route('/about', methods=['GET'])
+def about():
+    return render_template("about.html")
 
 if __name__ == '__main__':
     # If the database is not found, create it

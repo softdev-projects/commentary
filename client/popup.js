@@ -47,9 +47,46 @@ function getCurrentTabUrl(callback) {
   // alert(url); // Shows "undefined", because chrome.tabs.query is async.
 }
 
+function renderStatus(statusText) {
+  document.getElementById('status').textContent = statusText;
 
-function renderStatus(statusText) { 
-    document.getElementById('status').textContent = statusText;
+}
+
+//list is a JSON list : comments [ user_id, comment, date ]
+// {comment} posted by {user_id} on {date} \n
+function commentify(list) { 
+    var text = "";
+    var s;
+    for (s in list["comments"]) { 
+	var user_id = s['user_id'];
+	var comment = s['content'];
+	//var date = s['date']
+	text = text + comment + " posted by " + user_id + "\n";
+    }
+    return text;
+}
+
+function getURL(list) {
+    return list['url'];
+}
+
+   
+function renderComments(commentText) { 
+    document.getElementById('comments').textContent = commentText;
+}
+
+function renderCommentsURL(url) {
+    document.getElementById('commentsURL').textContent = url;
+}
+
+
+function submitComment(commentData) {
+  console.log(commentData);
+  var xhr = new XMLHttpRequest();
+  var url = commentData[url];
+  xhr.open('POST', 'http://127.0.0.1:5000/comments/new');
+  xhr.setRequestHeader('Content-Type', 'application/json');
+  xhr.send(JSON.stringify(commentData));
 }
 
 function sendRequest() {
@@ -62,14 +99,24 @@ function sendRequest() {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    document.querySelector('#send_button').addEventListener('click', console.log("send stuff"));
-    document.querySelector('#receive_button').addEventListener('click', console.log("receive stuff"));
-    getCurrentTabUrl(function(url) {
-	// Put the image URL in Google search.
-	renderStatus('your current url: ' + url);
-	//}, function(errorMessage) {
-	//renderStatus('Cannot display image. ' + errorMessage);
-    });
-    //});
-    
+  document.getElementById('send_button').addEventListener('click',
+          function() {
+            getCurrentTabUrl(function(url) {
+              renderStatus(url);
+              var comment = document.getElementById('comment');
+              console.log(comment.value);
+              var data = {
+                user_id: 1,
+                url: url,
+                comment: comment.value
+              }
+              submitComment(data);
+            });
+        });
+  document.getElementById('receive_button').addEventListener('click',
+	  function() { 
+	      // list is json list given by server
+	      //renderComments(commentify(list));
+	      //renderCommentsURL(getURL(list));
+	  });
 });

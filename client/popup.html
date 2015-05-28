@@ -1,26 +1,26 @@
 <!doctype html>
 <!--
-    This page is shown when the extension button is clicked, because the
-    "browser_action" field in manifest.json contains the "default_popup" key with
-    value "popup.html".
-  -->
+ This page is shown when the extension button is clicked, because the
+ "browser_action" field in manifest.json contains the "default_popup" key with
+ value "popup.html".
+ -->
 <html>
   <head>
-    <title>Commentary!</title>
+    <title>Commentary</title>
     <style>
       body {
-      font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
-      font-size: 100%;
+        font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
+        font-size: 100%;
       }
       #status {
-      /* avoid an excessively wide status text */
-      white-space: pre;
-      text-overflow: ellipsis;
-      overflow: hidden;
-      max-width: 400px;
+        /* avoid an excessively wide status text */
+        white-space: pre;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        max-width: 400px;
       }
     </style>
-    
+
     <!--
       - JavaScript and HTML must be in separate files: see our Content Security
       - Policy documentation[1] for details and explanation.
@@ -30,11 +30,13 @@
     <script src="popup.js"></script>
   </head>
   <body>
-    <h5>comments go here</h5>
-    <button id="send_button">Send stuff!!</button>
-    <button id="receive_button">Receive stuff!!</button>
-    <div id="status">
-    </div>
+    <div id="commentsURL"></div> 
+    <div id="comments"></div> 
+    <input id="comment" name="commenting" type="text" placeholder="Enter new comment here">
+    <button id="send_button">Send comment to server</button>
+    <button id="receive_button">Fetch comments from server</button>
+    <br/>
+    <div id="status"></div>
   </body>
 </html>
 

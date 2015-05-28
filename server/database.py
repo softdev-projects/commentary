@@ -25,3 +25,8 @@ def insert_comment(cursor, comment):
 def get_last_comment(cursor):
     query = 'SELECT * FROM comments ORDER BY id ASC LIMIT 1'
     return cursor.execute(query).fetchone()
+
+
+def get_comments_for_url(cursor, url):
+    query = 'SELECT * FROM comments WHERE url = ? ORDER BY id ASC'
+    return cursor.execute(query, (url,)).fetchall()
