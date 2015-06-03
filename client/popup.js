@@ -125,8 +125,10 @@ document.addEventListener('DOMContentLoaded', function() {
 		  var xhr = new XMLHttpRequest();
 		  xhr.onreadystatechange = function() {
 		      if (xhr.readyState == 4) {
-			  //console.log(xhr.responseText);
-			  var list = xhr.responseText;
+			  var text = xhr.responseText;
+			  var list = JSON.parse(text);
+			  console.log(list["comments"][0]["content"]);
+			  //console.log(commentify(list));
 			  renderComments("hello");
 		      }
 		  }
