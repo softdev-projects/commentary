@@ -56,10 +56,9 @@ function renderStatus(statusText) {
 // {comment} posted by {user_id} on {date} \n
 function commentify(list) { 
     var text = "";
-    var s;
-    for (s in list["comments"]) { 
-	var user_id = s['user_id'];
-	var comment = s['content'];
+    for (i=0;i<list["comments"].length;i++){
+	var user_id = list["comments"][i]['user_id'];
+	var comment = list["comments"][i]['content'];
 	//var date = s['date']
 	text = text + comment + " posted by " + user_id + "\n";
     }
@@ -125,10 +124,11 @@ document.addEventListener('DOMContentLoaded', function() {
 		  var xhr = new XMLHttpRequest();
 		  xhr.onreadystatechange = function() {
 		      if (xhr.readyState == 4) {
-			  //console.log(xhr.responseText);
-			  var list = xhr.responseText;
-			  renderComments("hello");
+			  var list = JSON.parse(xhr.responseText);
+			  console.log(renderComments(commentify(list)));
+			  
 		      }
+		      //renderComments(commentify(list));
 		  }
 		  var server = 'http://127.0.0.1:5000/comments?url=' + url;
 		  xhr.open('GET',server);
