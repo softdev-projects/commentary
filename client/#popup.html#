@@ -7,20 +7,13 @@
 <html>
   <head>
     <title>Commentary</title>
-    <style>
-      body {
-        font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
-        font-size: 100%;
-      }
-      #status {
-        /* avoid an excessively wide status text */
-        white-space: pre;
-        text-overflow: ellipsis;
-        overflow: hidden;
-        max-width: 400px;
-      }
-    </style>
 
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+    <link rel="stylesheet"
+	  href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
+
+    <link href="/static/extensionStyle.css" rel="stylesheet"> 
     <!--
       - JavaScript and HTML must be in separate files: see our Content Security
       - Policy documentation[1] for details and explanation.
@@ -30,13 +23,13 @@
     <script src="popup.js"></script>
   </head>
   <body>
-    <div id="commentsURL"></div> 
+    <h5>Comments go here</h5>
+    <div id="comments"></div> 
     <input id="comment" name="commenting" type="text" placeholder="Enter new comment here">
     <button id="send_button">Send comment to server</button>
     <button id="receive_button">Fetch comments from server</button>
-    <br>
+    <br/>
     <div id="status"></div>
-    <div id="comments"></div> 
   </body>
 </html>
 
