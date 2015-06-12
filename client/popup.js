@@ -60,7 +60,7 @@ function commentify(list) {
 	var user_id = list["comments"][i]['user_id'];
 	var comment = list["comments"][i]['content'];
 	//var date = s['date']
-	text = text + comment + " posted by " + user_id + "\n";
+	text = text + comment + " ";
     }
     return text;
 }
