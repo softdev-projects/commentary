@@ -29,7 +29,7 @@ body {
   font-size: 14px;
   padding: 7px;
   width: 200px;
-  border: solid 2px  #f9f9f9;
+  border: solid 2px #f9f9f9;
   box-shadow: inset 2px 1px 2px 0 #2f2f2f;
   transition: box-shadow 0.3s;
 }
@@ -39,7 +39,7 @@ body {
   box-shadow: inset 2px 1px 2px 0 #c9c9c9;
 }
 
-
+/* Original Color for buttons:  #0C5 */
 .button
 {
     text-transform: uppercase;
