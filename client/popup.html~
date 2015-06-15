@@ -30,13 +30,13 @@
     <script src="popup.js"></script>
   </head>
   <body>
-    <h5>Comments go here</h5>
-    <div id="comment_list"></div> 
+    <div id="commentsURL"></div> 
     <input id="comment" name="commenting" type="text" placeholder="Enter new comment here">
     <button id="send_button">Send comment to server</button>
     <button id="receive_button">Fetch comments from server</button>
-    <br/>
+    <br>
     <div id="status"></div>
+    <div id="comments"></div> 
   </body>
 </html>
 

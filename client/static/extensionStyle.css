@@ -17,30 +17,48 @@
 }
 
 
-body { font-family: "Infinity"; font-size: 24px; }
-a    { text-decoration: none; }
-p    { text-align: center; }
-sup  { font-size: 36px; font-weight: 100; line-height: 55px; }
+body { 
+    font-family: "Infinity";
+    background: #f9f9f9;
+ }
+
+
+.txtInput{
+  font-family: "Fabrica";
+  overflow: hidden;
+  font-size: 14px;
+  padding: 7px;
+  width: 200px;
+  border: solid 2px  #f9f9f9;
+  box-shadow: inset 2px 1px 2px 0 #2f2f2f;
+  transition: box-shadow 0.3s;
+}
+
+.txtInput:focus,
+.txtInput.focus {
+  box-shadow: inset 2px 1px 2px 0 #c9c9c9;
+}
+
 
 .button
 {
     text-transform: uppercase;
     letter-spacing: 2px;
     text-align: center;
-    color: #0C5;
+    color: #00ccc7;
     
-  font-size: 24px;
-  font-family: "Infinity", sans-serif;
-  font-weight: 300;
+  font-size: 22px;
+  font-family: "Komoda", sans-serif;
+  font-weight: 250;
   
-  margin: 5em auto;
+  /*margin: 5em auto;
   
-  position: absolute; 
+  position: absolute; */
   top:0; right:0; bottom:0; left:0;
   
-  padding: 20px 0;
-  width: 220px;
-  height:30px;
+  padding: 5px, 5px, 10px, 10px;
+  width: 200px;
+  height:50px;
 
   background: #0D6;
   border: 1px solid #0D6;
@@ -53,8 +71,8 @@ sup  { font-size: 36px; font-weight: 100; line-height: 55px; }
 .button:hover, .button:active 
 {
   text-decoration: none;
-  color: #0C5;
-  border-color: #0C5;
+  color: #00ccc7;
+  border-color: #00ccc7;
   background: #FFF;
 }
 
@@ -100,11 +118,11 @@ sup  { font-size: 36px; font-weight: 100; line-height: 55px; }
   right: 0;
   top: 50%;
 }
-
+/*
 #status {
-    /* avoid an excessively wide status text */
+     avoid an excessively wide status text 
     white-space: pre;
     text-overflow: ellipsis;
     overflow: hidden;
     max-width: 400px;
-}
+}*/

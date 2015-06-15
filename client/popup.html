@@ -7,7 +7,11 @@
 <html>
   <head>
     <title>Commentary</title>
-    <style>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
+    <link href="static/extensionStyle.css" rel="stylesheet">
+    <style> <!--
       body {
         font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
         font-size: 100%;
@@ -18,7 +22,7 @@
         text-overflow: ellipsis;
         overflow: hidden;
         max-width: 400px;
-      }
+      } -->
     </style>
 
     <!--
@@ -31,9 +35,9 @@
   </head>
   <body>
     <div id="commentsURL"></div> 
-    <input id="comment" name="commenting" type="text" placeholder="Enter new comment here">
-    <button id="send_button">Send comment to server</button>
-    <button id="receive_button">Fetch comments from server</button>
+    <input class="txtInput" id="comment" name="commenting" type="text" placeholder="Enter new comment here">
+    <button class="button" id="send_button">Send comment to server</button>
+    <button class="button" id="receive_button">Fetch comments from server</button>
     <br>
     <div id="status"></div>
     <div id="comments"></div> 
